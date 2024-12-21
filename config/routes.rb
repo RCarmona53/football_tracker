@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :matches do
     resources :stats
   end
+  root to: "main#index"
 end
