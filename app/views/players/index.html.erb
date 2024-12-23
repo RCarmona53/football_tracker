@@ -2,6 +2,7 @@
 
 <% if current_user.admin? %>
   <%= link_to 'New Player', new_player_path %>
+  <%= link_to 'New Match', new_match_path %>
 <% end %>
 
 <table>
@@ -27,34 +28,8 @@
             <%= link_to 'Delete', player_path(player), method: :delete, data: { confirm: 'Are you sure?' } %>
           <% end %>
         </td>
-      </tr>
-      <tr>
-        <td colspan="5">
-          <h3>Match Stats:</h3>
-          <table>
-            <thead>
-              <tr>
-                <th>Date</th>
-                <th>Location</th>
-                <th>Goals</th>
-                <th>Assists</th>
-                <th>Rating</th>
-                <th>Presence</th>
-              </tr>
-            </thead>
-            <tbody>
-              <% player.stats.each do |stat| %>
-                <tr>
-                  <td><%= stat.match.date.strftime('%Y-%m-%d') if stat.match %></td>
-                  <td><%= stat.match.location if stat.match %></td>
-                  <td><%= stat.goals %></td>
-                  <td><%= stat.assists %></td>
-                  <td><%= stat.rating %></td>
-                  <td><%= stat.present ? 'Yes' : 'No' %></td>
-                </tr>
-              <% end %>
-            </tbody>
-          </table>
+        <td>
+          <%= link_to 'Matches', player_stats_path(player) %>
         </td>
       </tr>
     <% end %>

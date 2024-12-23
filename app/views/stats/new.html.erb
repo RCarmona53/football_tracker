@@ -1,0 +1,29 @@
+<h1>Add Stats for <%= @player.first_name %> <%= @player.last_name %></h1>
+
+<%= form_with(model: [@player, @stat], local: true) do |form| %>
+  <div class="field">
+    <%= form.label :match_id, 'Match' %>
+    <%= form.collection_select :match_id, Match.all, :id, :location %>
+  </div>
+  <div class="field">
+    <%= form.label :goals %>
+    <%= form.number_field :goals %>
+  </div>
+  <div class="field">
+    <%= form.label :assists %>
+    <%= form.number_field :assists %>
+  </div>
+  <div class="field">
+    <%= form.label :rating %>
+    <%= form.number_field :rating, step: 0.1 %>
+  </div>
+  <div class="field">
+    <%= form.label :present %>
+    <%= form.check_box :present %>
+  </div>
+  <div class="actions">
+    <%= form.submit 'Create Stat' %>
+  </div>
+<% end %>
+
+<%= link_to 'Back', player_stats_path(@player) %>

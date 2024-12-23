@@ -4,6 +4,7 @@ class PlayersController < ApplicationController
 
   def index
     @players = Player.includes(:stats, :matches)
+    @matches = Match.all
   end  
 
   def new
