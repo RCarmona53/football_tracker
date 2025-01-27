@@ -26,6 +26,7 @@
         <% if current_user.admin? %>
           <td>
             <%= link_to 'Edit', edit_player_stat_path(@player, stat) %>
+            <%= button_to 'Delete', player_stat_path(@player, stat), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
           </td>
         <% end %>
       </tr>

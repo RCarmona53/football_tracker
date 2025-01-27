@@ -1,0 +1,30 @@
+<h1>Edit Match</h1>
+
+<%= form_with model: @match, local: true do |form| %>
+  <% if @match.errors.any? %>
+    <div>
+      <h2><%= pluralize(@match.errors.count, "error") %> prohibited this match from being saved:</h2>
+      <ul>
+        <% @match.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :date %>
+    <%= form.datetime_local_field :date, value: @match.date %>
+  </div>
+
+  <div>
+    <%= form.label :location %>
+    <%= form.text_field :location %>
+  </div>
+
+  <div>
+    <%= form.submit "Update Match" %>
+  </div>
+<% end %>
+
+<%= link_to 'Back to Matches', matches_path %>

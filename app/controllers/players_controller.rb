@@ -1,6 +1,7 @@
 class PlayersController < ApplicationController
   before_action :authenticate_user!
   before_action :check_admin, only: [:new, :create, :edit, :update, :destroy]
+  before_action :set_player, only: %i[show edit update destroy]
 
   def index
     @players = Player.includes(:stats, :matches)
@@ -18,6 +19,9 @@ class PlayersController < ApplicationController
     else
       render :new
     end
+  end
+
+  def show
   end
 
   def edit
@@ -46,6 +50,10 @@ class PlayersController < ApplicationController
 
   def player_params
     params.require(:player).permit(:first_name, :last_name, :email)
+  end
+
+  def set_player
+    @player = Player.find(params[:id])
   end
 
   def check_admin

@@ -25,7 +25,7 @@
         <td>
           <% if current_user.admin? %>
             <%= link_to 'Edit', edit_player_path(player) %> |
-            <%= link_to 'Delete', player_path(player), method: :delete, data: { confirm: 'Are you sure?' } %>
+            <%= button_to 'Delete', player_path(player), method: :delete, data: { confirm: 'Are you sure?' } %>
           <% end %>
         </td>
         <td>
@@ -33,5 +33,6 @@
         </td>
       </tr>
     <% end %>
+    <%= link_to 'Back to Main', root_path, class: 'button' %>
   </tbody>
 </table>

@@ -10,6 +10,7 @@
     <p>Welcome back, <%= current_user.email %>!</p>
     <%= button_to "Log out", destroy_user_session_path, method: :delete %>
     <p><%= link_to "View Players", players_path %></p>
+    <p><%= link_to "View Matches", matches_path %></p>
   <% else %>
     <p>
       <%= link_to "Log In", new_user_session_path %> or

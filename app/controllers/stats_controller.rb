@@ -2,7 +2,7 @@ class StatsController < ApplicationController
   before_action :authenticate_user!
   before_action :check_admin
   before_action :set_player
-  before_action :set_stat, only: [:edit, :update]
+  before_action :set_stat, only: [:edit, :update, :destroy]
 
   def index
     @stats = @player.stats.includes(:match)
@@ -33,6 +33,11 @@ class StatsController < ApplicationController
       render :edit
     end
   end
+  
+  def destroy
+    @stat.destroy
+    redirect_to player_stats_path(@player), notice: "Stat was successfully deleted."
+  end
 
   private
 
@@ -42,7 +47,7 @@ class StatsController < ApplicationController
 
   def set_stat
     @stat = @player.stats.find_by(id: params[:id])
-    redirect_to player_path(@player), alert: "Stat not found." unless @stat
+    # redirect_to player_path(@player), alert: "Stat not found." unless @stat
   end
 
   def stat_params
