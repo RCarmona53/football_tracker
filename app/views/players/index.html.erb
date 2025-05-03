@@ -10,7 +10,6 @@
     <tr>
       <th>Name</th>
       <th>Total Goals</th>
-      <th>Total Assists</th>
       <th>Matches Played</th>
       <th>Actions</th>
     </tr>
@@ -20,7 +19,6 @@
       <tr>
         <td><%= "#{player.first_name} #{player.last_name}" %></td>
         <td><%= player.stats.sum(:goals) %></td>
-        <td><%= player.stats.sum(:assists) %></td>
         <td><%= player.matches.count %></td>
         <td>
           <% if current_user.admin? %>

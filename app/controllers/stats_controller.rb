@@ -51,7 +51,7 @@ class StatsController < ApplicationController
   end
 
   def stat_params
-    params.require(:stat).permit(:goals, :assists, :rating, :present, :match_id)
+    params.require(:stat).permit(:goals, :present, :match_id)
   end
 
   def check_admin

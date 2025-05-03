@@ -10,10 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_11_17_190921) do
+ActiveRecord::Schema[7.0].define(version: 2025_05_03_151423) do
   create_table "matches", force: :cascade do |t|
     t.datetime "date"
-    t.string "location"
+    t.string "rival"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -30,8 +30,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_11_17_190921) do
     t.integer "player_id", null: false
     t.integer "match_id", null: false
     t.integer "goals"
-    t.integer "assists"
-    t.decimal "rating"
     t.boolean "present"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
