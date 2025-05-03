@@ -3,19 +3,11 @@
 <%= form_with(model: [@player, @stat], local: true) do |form| %>
   <div class="field">
     <%= form.label :match_id, 'Match' %>
-    <%= form.collection_select :match_id, Match.all, :id, :location %>
+    <%= form.collection_select :match_id, Match.all, :id, :rival %>
   </div>
   <div class="field">
     <%= form.label :goals %>
     <%= form.number_field :goals %>
-  </div>
-  <div class="field">
-    <%= form.label :assists %>
-    <%= form.number_field :assists %>
-  </div>
-  <div class="field">
-    <%= form.label :rating %>
-    <%= form.number_field :rating, step: 0.1 %>
   </div>
   <div class="field">
     <%= form.label :present %>

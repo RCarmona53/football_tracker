@@ -38,7 +38,7 @@ class MatchesController < ApplicationController
   private
 
   def match_params
-    params.require(:match).permit(:date, :location)
+    params.require(:match).permit(:date, :rival)
   end
 
   def check_admin
